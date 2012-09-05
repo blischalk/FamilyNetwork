@@ -1,0 +1,8 @@
+.fields
+  = f.hidden_field(:whole)
+  = f.hidden_field(:numerator)
+  = f.hidden_field(:denominator)
+  = f.hidden_field(:unit)
+  = f.fields_for :ingredient do |builder|
+    = builder.hidden_field :title
+    = f.hidden_field(:_destroy)

@@ -1,0 +1,4 @@
+%h1 Editing recipe
+
+= render 'form'
+= content_for :action_links, (link_to('Show', @recipe, class: 'btn') + ' ' + link_to('Dashboard', root_path, class: 'btn'))

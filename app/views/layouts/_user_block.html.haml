@@ -1,0 +1,12 @@
+%aside#user-block.block
+  %ul
+    %li= link_to 'Add Recipe', new_recipe_path
+
+    - if Profile.find_by_user_id(current_user.id)
+      %li= link_to 'Edit Profile', edit_profile_path(current_user.profile)
+    - else
+      %li= link_to 'Create Profile', new_profile_path
+    %li= link_to 'Account Info', edit_user_registration_path
+
+    - if session['warden.user.user.key']
+      %li= link_to 'Logout', destroy_user_session_path, method: :delete

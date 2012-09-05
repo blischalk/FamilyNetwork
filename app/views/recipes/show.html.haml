@@ -1,0 +1,41 @@
+#recipe
+  .title
+    %b Title:
+    - if @recipe.title.present?
+      = @recipe.title
+
+  .description
+    %b Description:
+    - if @recipe.description.present?
+      = @recipe.description
+
+  .tools
+    %b Tools:
+    %ul
+      - if @recipe.tool_assignments.present?
+        - @recipe.tool_assignments.each_with_index do |ta, i|
+          %li
+            = ta.count
+            = ta.tool.title
+            = link_to_remove("tool-#{i}")
+
+  .ingredients
+    %b Ingredients:
+    %ul
+      - if @recipe.ingredient_assignments.present?
+        - @recipe.ingredient_assignments.each_with_index do |ia, i|
+          %li
+            = "#{ia.whole} #{ia.numerator.to_s} / #{ia.denominator.to_s}#{ia.unit} #{ia.ingredient.title}"
+            = link_to_remove("ingredient-#{i}")
+
+  .steps
+    %b Steps:
+    %ol
+      - if @recipe.steps.present?
+        - @recipe.steps.each_with_index do |s, i|
+          %li
+            = s.description
+            = link_to_remove("step-#{i}")
+
+- if params[:action] == 'show'
+  = content_for :action_links, (link_to('Edit', edit_recipe_path(@recipe), class: 'btn') + ' ' + link_to('Dashboard', root_path, class: 'btn'))

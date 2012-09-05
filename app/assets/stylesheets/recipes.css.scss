@@ -1,0 +1,22 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#tool-slugs{
+  select{
+    width: 100%;
+  }
+  input{
+    width: 95%;
+  }
+  .span4.tool-input{
+    margin-left:2%;
+  }
+  .span4{
+    margin: 0px;
+  }
+}
+fieldset.tools a.btn{
+  position:relative;
+  top: 22px;
+  margin-left: 2%;
+}

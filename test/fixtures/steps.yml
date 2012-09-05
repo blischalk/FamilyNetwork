@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyString
+  weight: 
+  recipe_id: 
+
+two:
+  description: MyString
+  weight: 
+  recipe_id: 

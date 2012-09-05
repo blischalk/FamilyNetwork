@@ -1,0 +1,44 @@
+= content_for :sidebar , render(template: 'recipes/show')
+.row-fluid
+  = form_for(@recipe) do |f|
+    - if @recipe.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@recipe.errors.count, "error") 
+          prohibited this recipe from being saved:
+        %ul
+          - @recipe.errors.full_messages.each do |msg|
+            %li= msg
+    .span3
+      .control-group
+        = f.label :title, :class => 'control-label'
+        .controls
+          = f.text_field :title, :class => 'text_field'
+
+      .control-group
+        = f.label :description, :class => 'control-label'
+        .controls
+          = f.text_area :description, :class => 'text_area'
+    .span6 
+      %fieldset.tools
+        %legend Tools:
+        = render "tool_slug"
+        = f.fields_for(:tool_assignments) do |builder|
+          = render "tool_assignment_fields", :f => builder
+        = link_to_add_fields "Add Tool", f, :tool_assignments
+      
+      %fieldset.ingredients
+        %legend Ingredients:
+        = render "ingredient_slug"
+        = f.fields_for(:ingredient_assignments) do |builder|
+          = render "ingredient_assignment_fields", :f => builder
+        = link_to_add_fields 'Add Ingredient', f, :ingredient_assignments
+
+      %fieldset.steps
+        %legend Steps:
+        = render "step_slug"
+        = f.fields_for(:steps) do |builder|
+          = render "step_fields", :f => builder
+        = link_to_add_fields "Add Step", f, :steps
+      
+        = content_for :actions, f.submit(nil, :class => 'btn btn-primary', :id => 'recipe-submit')

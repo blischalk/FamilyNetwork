@@ -1,0 +1,5 @@
+.fields
+  = f.hidden_field(:count)
+  = f.fields_for :tool do |builder|
+    = builder.hidden_field :title
+    = f.hidden_field(:_destroy)

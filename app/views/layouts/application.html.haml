@@ -1,0 +1,22 @@
+!!! html
+%html
+  %head
+  %title FamilyNetwork
+  = stylesheet_link_tag    "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+%body
+  %div{id: "main", class: "block clearfix container-fluid"}
+    %p{ class: "notice"}
+      = notice
+    %p{ class: "alert"}
+      = alert
+    .row-fluid
+      %div{id: "content", class: "span9"}
+        = yield
+      %div{class: 'span3 sidebar'}
+        = yield :sidebar
+    .form-actions
+      = yield :actions
+      = yield :action_links
+  = render 'layouts/footer'

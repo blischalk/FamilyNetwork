@@ -1,0 +1,7 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+To Do's:
+- Refactor javascript to be coffee script
+- Refactor link_to_add_field helper to remove model coupling
+- Add tools functionality to recipe form

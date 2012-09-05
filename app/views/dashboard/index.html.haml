@@ -1,0 +1,16 @@
+%section{id: 'latest-recipes', class: 'block'}
+  %header
+    %h1 Welcome to the Family Network Dashboard
+  - if @recipes.present?
+    %header
+      %h2 Recent Recipes
+    %ul
+      - @recipes.each do |r|
+        %li
+          %h2= link_to r.title, recipe_path(r.id)
+          %p
+            %em 
+              != "Submitted by: #{recipe_author(r)} , on #{r.created_at.strftime("%m/%d/%Y")}"
+          %p
+            = r.description
+= render 'layouts/user_block'

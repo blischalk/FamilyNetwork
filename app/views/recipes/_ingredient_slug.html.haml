@@ -1,0 +1,13 @@
+#ingredient-slugs.slug-fields
+  .span12.whole
+    = label :whole, "Measurement"
+    = select_tag(:whole, options_for_select((1..15).to_a), include_blank: true)
+  .span12.fraction
+    = select_tag(:numerator, options_for_select((1..16).to_a), include_blank: true) 
+    %span / 
+    = select_tag(:denominator, options_for_select((1..16).to_a), include_blank: true)
+  .span12.unit
+    = select_tag(:unit, options_for_select(['tsp', 'Tbsp', 'c', 'lb', 'oz', 'Pt', 'Qt', 'Gal']))
+  .span12.title
+    = label :title, "Ingredient"
+    = text_field_tag :title

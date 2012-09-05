@@ -1,0 +1,7 @@
+#tool-slugs.slug-fields
+  .span4.tool-count
+    = label :count, "Count"
+    = select_tag(:count, options_for_select((1..15).to_a))
+  .span4.tool-input
+    = label :title, "Tool"
+    = text_field_tag :title
